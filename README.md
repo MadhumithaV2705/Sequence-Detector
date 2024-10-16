@@ -35,7 +35,7 @@ Verilog Code for Sequence Detector Using Moore FSM
 module moore_seq_detector (
     input wire clk,
     input wire reset,
-    input wire data,
+    input wire seq_in,
     output reg detected
 );
 
@@ -59,11 +59,11 @@ module moore_seq_detector (
     // Next state logic
     always @(*) begin
         case (current_state)
-            S0: next_state = (data) ? S1 : S0; // Move to S1 on '1'
-            S1: next_state = (data) ? S1 : S2; // Stay on '1' or move to '10'
-            S2: next_state = (data) ? S3 : S0; // Move to '101' or reset
-            S3: next_state = (data) ? S4 : S2; // Move to '1011' or '10'
-            S4: next_state = (data) ? S1 : S0; // Detected, move to '1' or reset
+            S0: next_state = (seq_in) ? S1 : S0; // Move to S1 on '1'
+            S1: next_state = (seq_in) ? S1 : S2; // Stay on '1' or move to '10'
+            S2: next_state = (seq_in) ? S3 : S0; // Move to '101' or reset
+            S3: next_state = (seq_in) ? S4 : S2; // Move to '1011' or '10'
+            S4: next_state = (seq_in) ? S1 : S0; // Detected, move to '1' or reset
             default: next_state = S0;
         endcase
     end
@@ -79,6 +79,7 @@ module moore_seq_detector (
 endmodule
 
 OUTPUT:
+![image](https://github.com/user-attachments/assets/dccc5c11-cd68-45a9-99da-a591994a0bcc)
 
 
 Verilog Code for Sequence Detector Using Mealy FSM
@@ -144,6 +145,10 @@ end
 endcase
 end
  endmodule
+
+ OUTPUT:
+ ![image](https://github.com/user-attachments/assets/b27d5c61-f08e-47ab-b491-4719053db721)
+
 
 Testbench for Sequence Detector (Moore and Mealy FSMs)
 
