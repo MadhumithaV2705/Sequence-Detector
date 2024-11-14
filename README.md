@@ -1,35 +1,32 @@
-# Sequence-Detector
-Aim
+# SEQUENCE-DETECTOR
+
+# Aim
 To design and simulate a sequence detector using both Moore and Mealy state machine models in Verilog HDL, and verify their functionality through a testbench using the Vivado 2023.1 simulation environment. The objective is to detect a specific sequence of bits (e.g., 1011) and compare the Moore and Mealy designs.
 
-Apparatus Required
+# Apparatus Required
 Vivado 2023.1 or equivalent Verilog simulation tool.
 Computer system with a suitable operating system.
-Procedure
+
+# Procedure
 Launch Vivado 2023.1:
 
-Open Vivado and create a new project.
-Write the Verilog Code for Sequence Detector (Moore and Mealy FSM):
+Open Vivado and create a new project. Write the Verilog Code for Sequence Detector (Moore and Mealy FSM):
 
-Design two Verilog modules: one for a Moore FSM and another for a Mealy FSM to detect a sequence such as 1011.
-Create the Testbench:
+Design two Verilog modules: one for a Moore FSM and another for a Mealy FSM to detect a sequence such as 1011. Create the Testbench:
 
-Write a testbench to apply input sequences and verify the output of both FSM designs.
-Add the Verilog Files:
+Write a testbench to apply input sequences and verify the output of both FSM designs. Add the Verilog Files:
 
-Add the Verilog code for both FSMs and the testbench to the Vivado project.
-Run Simulation:
+Add the Verilog code for both FSMs and the testbench to the Vivado project. Run Simulation:
 
-Run the simulation and observe the output to check if the sequence is detected correctly.
-Observe the Waveforms:
+Run the simulation and observe the output to check if the sequence is detected correctly. Observe the Waveforms:
 
-Analyze the waveform to ensure both the Moore and Mealy machines detect the sequence as expected.
-Save and Document Results:
+Analyze the waveform to ensure both the Moore and Mealy machines detect the sequence as expected. Save and Document Results:
 
 Capture the waveforms and include the results in the final report.
 
-Verilog Code for Sequence Detector Using Moore FSM
+# Verilog Code for Sequence Detector Using Moore FSM
 
+~~~
 // moore_sequence_detector.v
 
 module moore_seq_detector (
@@ -77,13 +74,15 @@ module moore_seq_detector (
     end
 
 endmodule
+~~~
 
-OUTPUT:
+# OUTPUT:
 ![image](https://github.com/user-attachments/assets/dccc5c11-cd68-45a9-99da-a591994a0bcc)
 
 
-Verilog Code for Sequence Detector Using Mealy FSM
+# Verilog Code for Sequence Detector Using Mealy FSM
 
+~~~
 // mealy_sequence_detector.v
 module mealy_seq_detector(input clk, input reset, input seq_in, output reg detected );
 
@@ -145,15 +144,17 @@ end
 endcase
 end
  endmodule
+~~~
 
- OUTPUT:
- ![image](https://github.com/user-attachments/assets/b27d5c61-f08e-47ab-b491-4719053db721)
+# OUTPUT:
+![image](https://github.com/user-attachments/assets/b27d5c61-f08e-47ab-b491-4719053db721)
 
 
-Testbench for Sequence Detector (Moore and Mealy FSMs)
+# Testbench for Sequence Detector (Moore and Mealy FSMs)
 
-Testbench for Moore:
+# Testbench for Moore:
 
+~~~
 // sequence_detector_tb.v
 `timescale 1ns / 1ps
 
@@ -221,13 +222,15 @@ module tb_moore_seq_detector;
     end
 
 endmodule
+~~~
 
-OUTPUT:
+# OUTPUT:
 ![image](https://github.com/user-attachments/assets/003ab987-9609-45b0-9715-337bd5310e59)
 
 
-Tesbench for Mealy:
+# Tesbench for Mealy:
 
+~~~
 module tb_mealy_seq_detector;
 
     // Inputs
@@ -287,9 +290,10 @@ module tb_mealy_seq_detector;
     end
 
 endmodule
+~~~
 
- OUTPUT:
+ # OUTPUT:
  ![image](https://github.com/user-attachments/assets/f3aa8d45-334b-4416-81ce-3d78ea248652)
 
-Conclusion
+# Conclusion
 In this experiment, Moore and Mealy FSMs were successfully designed and simulated to detect the sequence 1011. Both designs worked as expected, with the main difference being that the Moore FSM generated the output based on the current state, while the Mealy FSM generated the output based on both the current state and input. The testbench verified the functionality of both FSMs, demonstrating that the Verilog HDL can effectively model both types of state machines for sequence detection tasks.
